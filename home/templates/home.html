@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            display: inline-block;
+            width: 45%;
+            margin: 20px;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background-color: #e67e22;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+
+        .card h2 {
+            color: #34495e;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            background-color: #2980b9;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .card-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Crop Recommendation System</h1>
+
+        <div class="card-container">
+            <!-- Model Training Card -->
+            <div class="card">
+                <h2>Train the Model</h2>
+                <p>Train the crop recommendation model to improve predictions based on your dataset.</p>
+                <a href="{% url 'train_model' %}">Train Now</a>
+            </div>
+
+            <!-- Crop Prediction Card -->
+            <div class="card">
+                <h2>Predict Crop</h2>
+                <p>Input soil and climate conditions to get crop recommendations.</p>
+                <a href="{% url 'predict_crop' %}">Predict Now</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

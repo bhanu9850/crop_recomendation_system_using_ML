@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Training Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #eef7f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: #34495e;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        img {
+            margin-top: 20px;
+            border-radius: 8px;
+            max-width: 100%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1c5980;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Recommendation Model Trained</h1>
+        <h2>Model Accuracy: {{ accuracy }}</h2>
+
+        <h3>Crop Classes:</h3>
+        <ul>
+            {% for label in unique_labels %}
+                <li>{{ label }}</li>
+            {% endfor %}
+        </ul>
+
+        <img src="{{ chart_path }}" alt="Feature Importance Chart">
+
+        <a class="btn" href="{% url 'predict_crop' %}">Go to Prediction</a>
+    </div>
+</body>
+</html>

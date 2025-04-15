@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f6fcff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2e8b57;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 30px;
+        }
+
+        p {
+            margin-top: 20px;
+            color: red;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 30px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Recommended Crop</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <label>Nitrogen:</label><input type="number" name="N" step="0.01">
+            <label>Phosphorus:</label><input type="number" name="P" step="0.01">
+            <label>Pottasium(K):</label><input type="number" name="K" step="0.01">
+            <label>Temperature:</label><input type="number" name="temperature" step="0.01">
+            <label>Humidity:</label><input type="number" name="humidity" step="0.01">
+            <label>pH:</label><input type="number" name="ph" step="0.01">
+            <label>Rainfall:</label><input type="number" name="rainfall" step="0.01">
+            <button type="submit">Predict Crop</button>
+        </form>
+
+        {% if predicted_crop %}
+            <h2>Predicted Crop: {{ predicted_crop }}</h2>
+        {% elif error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+
+        <a class="link" href="{% url 'train_model' %}">Retrain Model</a>
+    </div>
+</body>
+</html>
