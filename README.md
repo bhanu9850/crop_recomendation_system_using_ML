@@ -34,8 +34,8 @@ This project is a machine learning-based crop recommendation system. It recommen
 
 ## Author:
 
-KURUVA BHANU PRAKASH 
-kuruvabhanu28prakash@gmail.com
-9014663588
+- KURUVA BHANU PRAKASH 
+- kuruvabhanu28prakash@gmail.com
+- 9014663588
 
 
